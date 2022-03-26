@@ -74,7 +74,7 @@ const AuthorList = ({authorList,setpageLoad}) => {
                {authorList?.name}
             </CardTitle>
             <CardSubtitle className="mb-2 text-muted" tag="h6">
-                {authorList?.link}
+               <a href={authorList?.link} target='_blank'>{authorList?.link}</a> 
             </CardSubtitle>
             <CardText>
                 {authorList?.bio}
@@ -92,7 +92,7 @@ const AuthorList = ({authorList,setpageLoad}) => {
             :
             <Button color="danger" onClick={() =>deleteFavouriteAuthor(authorList)}>
                     Remove Favourite Author
-                </Button>
+            </Button>
             }
            
         </CardBody>

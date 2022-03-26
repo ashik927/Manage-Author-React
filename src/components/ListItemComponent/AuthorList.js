@@ -81,7 +81,7 @@ const AuthorList = ({authorList,setpageLoad}) => {
             </CardText>
             {
               location.pathname == '/author' ?
-                JSON.parse(localStorage.getItem("favouriteAuthor")).find(item => item._id === authorList._id) ? 
+              JSON.parse(localStorage.getItem("favouriteAuthor")) && JSON.parse(localStorage.getItem("favouriteAuthor")).find(item => item?._id === authorList?._id) ? 
                 <Button color="danger" onClick={() =>deleteFavouriteAuthor(authorList)}>
                     Remove Favourite Author
                 </Button>

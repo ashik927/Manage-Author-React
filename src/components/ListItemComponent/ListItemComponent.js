@@ -84,9 +84,6 @@ const ListItemComponent = () => {
                             <AuthorList authorList={singleAuthor} setpageLoad={setpageLoad}></AuthorList>
                         ))
                     }
-                {
-                    console.log('activePage',activePage)
-                }
                 <ReactPaginate
                     breakLabel="..."
                     nextLabel="next >"
@@ -111,11 +108,12 @@ const ListItemComponent = () => {
             </>
            :
            authorList &&
-           authorList?.length > 0  &&
+           authorList?.length > 0  ?
            authorList.map((singleAuthor) => (
                <AuthorList authorList={singleAuthor} setpageLoad={setpageLoad} ></AuthorList>
           ))
-        
+           :
+           <h1>No Favourite Added</h1>
         }
 
       

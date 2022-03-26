@@ -8,7 +8,7 @@ import Loader from '../Loader/Loader';
 const ListItemComponent = () => {
     const [authorList , setAuthorList] = useState([])
     const [pageCount, setPageCount] = useState(0);
-    const [activePage, setActivePage] = useState(1);
+    const [activePage, setActivePage] = useState(-1);
     const [itemsPerPage, setitemsPerPage] = useState(10);
     const [pageLoad, setpageLoad] = useState(false)
     const [Loading, setLoading] = useState(false)
@@ -29,7 +29,7 @@ const ListItemComponent = () => {
                         setLoading(false)                     
                     }); 
             }catch(error){
-                console.log(error);
+                // console.log(error);
             }
         }else{
             try{
@@ -43,7 +43,7 @@ const ListItemComponent = () => {
                         setLoading(false)                    
                     }); 
             }catch(error){
-                console.log(error);
+                // console.log(error);
             }
         }
        
@@ -80,8 +80,8 @@ const ListItemComponent = () => {
                     {
                         authorList &&
                         authorList?.results?.length > 0  &&
-                        authorList?.results.map((singleAuthor) => (
-                            <AuthorList authorList={singleAuthor} setpageLoad={setpageLoad}></AuthorList>
+                        authorList?.results.map((singleAuthor,index) => (
+                            <AuthorList authorList={singleAuthor} key={index} setpageLoad={setpageLoad}></AuthorList>
                         ))
                     }
                 <ReactPaginate
@@ -109,8 +109,8 @@ const ListItemComponent = () => {
            :
            authorList &&
            authorList?.length > 0  ?
-           authorList.map((singleAuthor) => (
-               <AuthorList authorList={singleAuthor} setpageLoad={setpageLoad} ></AuthorList>
+           authorList.map((singleAuthor,index) => (
+               <AuthorList authorList={singleAuthor} key={index} setpageLoad={setpageLoad} ></AuthorList>
           ))
            :
            <h1>No Favourite Added</h1>
